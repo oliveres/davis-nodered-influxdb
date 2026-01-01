@@ -5,6 +5,9 @@
 
 // CONFIGURATION
 const CONFIG = {
+    
+    outdoorTxId: 1,
+    
     // Rain collector size in mm per tip
     // Values: 0.2 (rain_size=2), 0.1 (rain_size=3), 0.254 (rain_size=1, 0.01"), 0.0254 (rain_size=4, 0.001")
     rainCupSizeMm: 0.2,
@@ -183,7 +186,7 @@ function toLineProtocol(measurement, tags, fields, ts) {
 }
 
 // Find data blocks by structure type
-const outdoor = data.conditions.find(c => c.data_structure_type === 1 && c.txid === 1);
+const outdoor = data.conditions.find(c => c.data_structure_type === 1 && c.txid === CONFIG.outdoorTxId);
 const indoor = data.conditions.find(c => c.data_structure_type === 4);
 const bar = data.conditions.find(c => c.data_structure_type === 3);
 
