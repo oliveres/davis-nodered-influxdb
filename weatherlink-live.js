@@ -5,7 +5,8 @@
 
 // CONFIGURATION
 const CONFIG = {
-    
+    // Transmitter ID for outdoor ISS (check your WeatherLink Live config)
+    // Most common setup: txid=1 is main ISS with all sensors
     outdoorTxId: 1,
     
     // Rain collector size in mm per tip
