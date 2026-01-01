@@ -48,6 +48,10 @@ http://<device-ip>/v1/current_conditions
 
 ```javascript
 const CONFIG = {
+    // Transmitter ID for outdoor ISS (check your WeatherLink Live config)
+    // Most common setup: txid=1 is main ISS with all sensors
+    outdoorTxId: 1,     
+
     // Rain collector size in mm per tip
     // Values: 0.2 (rain_size=2), 0.1 (rain_size=3), 
     //         0.254 (rain_size=1, 0.01"), 0.0254 (rain_size=4, 0.001")
@@ -84,6 +88,21 @@ const CONFIG = {
     }
 };
 ```
+
+## Multi-Transmitter Setup
+
+Davis WeatherLink Live supports multiple transmitters (up to 8). By default, 
+this converter uses `txid=1` for outdoor conditions.
+
+If your setup is different (e.g., separate anemometer on txid=2, or main ISS 
+on different txid), modify the `outdoorTxId` in CONFIG section.
+
+Common configurations:
+- Single ISS: `outdoorTxId: 1` (default)
+- Main ISS on txid 2: `outdoorTxId: 2`
+
+For complex setups with multiple sensor types across transmitters, you may 
+need to customize the code to merge data from multiple txids.
 
 ## Unit Conversions
 
